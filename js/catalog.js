@@ -17,9 +17,9 @@ function populateForm() {
     // <option value="name">Name</option>
     let option = document.createElement('option');
 
-    option.textContent = state.allProduct[i].name;
+    option.textContent = state.allProducts[i].name;
 
-    option.value = state.allProduct[i].name;
+    option.value = state.allProducts[i].name;
 
     selectElement.appendChild(option);
   }
@@ -49,17 +49,30 @@ function addSelectedItemToCart() {
   const itemSelected =document.getElementById('items').value;
 
   // ***DONE*** get the quantity
-  const quantitySelected =document.getElementById('quantity').vaulue;
+  const quantitySelected =document.getElementById('quantity').value;
 
   // ***DONE*** using those, add one item to the Cart
   state.cart.addItem(itemSelected, quantitySelected);
 }
 
+
+// *** i think I'm close, but I can't get this to work... *** laurel ***
+
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
+
   // TODO: Get the item and quantity from the form
+  const cartPreview = addSelectedItemToCart(document.getElementById('items').value); 
+  const cartPreviewQuantity = document.getElementById(('quantity').value );
+
   // TODO: Add a new element to the cartContents div with that information
+  let inCartDiv = document.createElement('div');
+  inCartDiv.textContent = cartPreview, cartPreviewQuantity;
+  cartContents.appendChild(inCartDiv);
 }
+
+addSelectedItemToCart();
+updateCartPreview();
 
 // Set up the "submit" event listener on the form.
 // This is the trigger for the app. When a user "submits" the form, it will
