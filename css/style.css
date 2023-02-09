@@ -1,1 +1,42 @@
 /* TODO: Make it awesome */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 1.2px;
+	line-height: 1.5;
+}
+
+body header {
+	width: 100%;
+	height: 50px;
+	background-color: rgb(247, 112, 34);
+	display: flex;
+	justify-content: flex-start;
+}
+
+
+body header h1 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 2rem;
+	font-style: oblique;
+	color: indigo;
+	padding: 10px;
+}
+
+main header h1 {
+	font-size: 1rem;
+}
+
+main {
+	background-color: lavender;
+	width: 100%;
+	height: 666px;
+}
+
+footer {
+	width: 100%;
+	height: 75px;
+	background-color: rgb(247, 112, 34);
+}

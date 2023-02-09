@@ -55,23 +55,27 @@ function addSelectedItemToCart() {
   state.cart.addItem(itemSelected, quantitySelected);
 }
 
+// I added this to make it easier for me to see what's happening -Laurel
+let cartList = document.createElement('h1');
+cartList.textContent = "Items in Your Cart:";
+cartContents.appendChild(cartList);
 
-// *** i think I'm close, but I can't get this to work... *** laurel ***
-
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// ***DONE*** As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
 
-  // TODO: Get the item and quantity from the form
-  const cartPreview = addSelectedItemToCart(document.getElementById('items').value); 
-  const cartPreviewQuantity = document.getElementById(('quantity').value );
+  // ***DONE*** Get the item and quantity from the form
+  const cartItemPreview =document.getElementById('items').value;
+  const cartQuantityPreview =document.getElementById('quantity').value;
 
-  // TODO: Add a new element to the cartContents div with that information
-  let inCartDiv = document.createElement('div');
-  inCartDiv.textContent = cartPreview, cartPreviewQuantity;
-  cartContents.appendChild(inCartDiv);
+
+  // ***DONE*** Add a new element to the cartContents div with that information
+  let ulCart = document.createElement('ul');
+  cartContents.appendChild(ulCart);
+  let liCart = document.createElement('li');
+  liCart.textContent = cartItemPreview, cartQuantityPreview;
+  ulCart.appendChild(liCart);
 }
 
-addSelectedItemToCart();
 updateCartPreview();
 
 // Set up the "submit" event listener on the form.
