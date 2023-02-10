@@ -38,23 +38,23 @@ function showCart() {
     const remove = document.createElement('td');
     const removeLink = document.createElement('a');
     removeLink.href = '#';
-    removeLink.textContent = 'Remove';
-    removeLink.classList.add('remove-item');
+    removeLink.textContent = 'X';
+    removeLink.classList.add('removeItem');
     remove.appendChild(removeLink);
+    const itemTd = document.createElement('td');
+    itemTd.textContent = item.product;
     const quantity = document.createElement('td');
     quantity.textContent = item.quantity;
-    const itemTd = document.createElement('td');
-    itemTd.textContent = item.product.name;
     // TODO: Add the TR to the TBODY and each of the TD's to the TR
     tr.appendChild(remove);
-    tr.appendChild(quantity);
     tr.appendChild(itemTd);
+    tr.appendChild(quantity);
     tbody.appendChild(tr);
   }
 }
 
 function removeItemFromCart(event) {
-  if (!event.target.classList.contains('remove-item')) return;
+  if (!event.target.classList.contains('removeItem')) return;
   const tr = event.target.closest('tr');
   const productName = tr.querySelector('td:last-child').textContent;
   state.cart.removeItem(productName);

@@ -10,17 +10,21 @@ const state = {
 const Cart = function(items) {
   // this.items is an array of CartItem instances.
   this.items = items;
+  this.cartQuantity = 0;
 };
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
   const newItem = new CartItem(product, quantity);
   this.items.push(newItem);
+  console.log (newItem.quantity);
+  this.cartQuantity += parseInt(newItem.quantity);
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
   localStorage.setItem("cart", JSON.stringify(this.items));
+  localStorage.setItem("cartQuantity", JSON.stringify(this.cartQuantity));
 };
 
 Cart.prototype.removeItem = function(item) {
@@ -33,7 +37,7 @@ Cart.prototype.removeItem = function(item) {
 Cart.prototype.updateCounter = function() {
   // TODO: Update the cart count in the header nav with the number of items in the Cart
   const count = document.getElementById('itemCount');
-  count.textContent = this.items.length;
+  count.textContent = this.cartQuantity;
 }
 
 const CartItem = function(product, quantity) {
